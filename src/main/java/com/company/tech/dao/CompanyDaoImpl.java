@@ -1,5 +1,7 @@
 package com.company.tech.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -73,6 +75,12 @@ public class CompanyDaoImpl implements CompanyDao{
 			return null;
 		}
 		
+	}
+
+	@Override
+	public List<Company> getCompanies() {
+		
+		return null;
 	}
 
 }

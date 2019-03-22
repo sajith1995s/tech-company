@@ -1,6 +1,7 @@
 package com.company.tech.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -72,6 +73,14 @@ public class CompanyServiceImpl implements CompanyService{
 			throw new TechException(TechCompanyErrors.COMPANY_CAN_NOT_FIND);
 		}
 		
+	}
+
+	@Override
+	public List<Company> getCompanies() {
+		
+		
+		
+		return null;
 	}
 
 }
