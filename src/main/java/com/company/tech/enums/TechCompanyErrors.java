@@ -6,7 +6,9 @@ public enum TechCompanyErrors {
 	COMPANY_NOT_CREATED("002","Can not create company"),
 	COMPANY_CAN_NOT_FIND("003","Can not find company"),
 	COMPANY_CAN_NOT_UPDATE("004","Can not update company"),
-	ANY_COMPANY_IS_REGISTERED_NOT_YET("005","Any company not yet registered ");
+	ANY_COMPANY_IS_REGISTERED_NOT_YET("005","Any company not yet registered"),
+	CAN_NOT_FIND_INACTIVATE_COMPANY("006","Can not find inactive company"),
+	COMPANY_DELETE_UNSUCCESS("007","Company deletion unsuccess");
 	
 	private String statusCode;
 	private String statusMessage;

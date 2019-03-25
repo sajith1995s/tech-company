@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 
 import com.company.tech.domain.Company;
+import com.company.tech.domain.Image;
 
 @Repository
 public class CompanyDaoImpl implements CompanyDao{
@@ -89,6 +90,38 @@ public class CompanyDaoImpl implements CompanyDao{
 			query.select(root);
 			return em.createQuery(query).getResultList();
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+	@Override
+	public List<Company> getInactiveCompanies() {
+
+		try{
+			
+			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaQuery<Company> query = cb.createQuery(Company.class);
+			Root<Company> root = query.from(Company.class);
+			
+			query.select(root).where(cb.equal(root.get("status"), "INACTIVE"));
+			return em.createQuery(query).getResultList();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+	@Override
+	public Image uploadImage(Image image) {
+		
+		try {
+			em.persist(image);
+			return image;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

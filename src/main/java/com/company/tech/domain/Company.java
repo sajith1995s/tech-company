@@ -23,6 +23,8 @@ public class Company implements Serializable {
 
 	private String name;
 
+	private String status;
+
 	public Company() {
 	}
 
@@ -56,6 +58,14 @@ public class Company implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

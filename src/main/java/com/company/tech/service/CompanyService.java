@@ -12,4 +12,6 @@ public interface CompanyService {
 	public HashMap<String, String> addNewCompany(CompanyRequest companyRequest);
 	public HashMap<String, String> updateCompany( int id , CompanyRequest companyRequest);
 	public List<Company> getCompanies();
+	public List<Company> getInactiveCompanyList();
+	public HashMap<String, String> deleteCompany(int companyId);
 }
