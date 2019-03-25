@@ -1,5 +1,6 @@
 package com.company.tech.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -76,11 +77,20 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 
 	@Override
-	public List<Company> getCompanies() {
+	public HashMap<String, List<Company>> getCompanies() {
 		
+		List<Company> companies = companyDao.getCompanies();
 		
-		
-		return null;
+		if(companies != null && !companies.isEmpty()) {
+			HashMap<String, List<Company>> hashMap = new HashMap();
+			
+			hashMap.put("message", companies);
+			
+			return hashMap;
+		}
+		else {
+			throw new TechException(TechCompanyErrors.COMPANY_CAN_NOT_FIND);
+		}
 	}
 
 }

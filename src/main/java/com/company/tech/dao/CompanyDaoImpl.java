@@ -80,7 +80,20 @@ public class CompanyDaoImpl implements CompanyDao{
 	@Override
 	public List<Company> getCompanies() {
 		
-		return null;
+		try {
+			
+			CriteriaBuilder cb = em.getCriteriaBuilder();
+			CriteriaQuery<Company> query = cb.createQuery(Company.class);
+			Root<Company> root = query.from(Company.class);
+			
+			query.select(root);
+			return em.createQuery(query).getResultList();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 }

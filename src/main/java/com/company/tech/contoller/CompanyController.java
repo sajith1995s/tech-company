@@ -1,6 +1,7 @@
 package com.company.tech.contoller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.company.tech.dao.CompanyDao;
+import com.company.tech.domain.Company;
 import com.company.tech.request.CompanyRequest;
 import com.company.tech.response.TechResponse;
 import com.company.tech.service.CompanyService;
@@ -19,6 +22,9 @@ public class CompanyController {
 	
 	@Autowired
 	CompanyService companyService;
+	
+	@Autowired
+	CompanyDao companyDao;
 	
 	@RequestMapping(method = RequestMethod.POST , value = "/create")
 	public TechResponse addCompany(@RequestBody CompanyRequest companyRequest) {
@@ -40,6 +46,18 @@ public class CompanyController {
 		TechResponse techResponse = new TechResponse();
 		techResponse.setResponseCode("204");
 		techResponse.setResponseObject(hashMap);
+		
+		return techResponse;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public TechResponse getAllCompany() {
+		
+		HashMap<String, List<Company>> companies = companyService.getCompanies();
+		
+		TechResponse techResponse = new TechResponse();
+		techResponse.setResponseCode("200");
+		techResponse.setResponseObject(companies);
 		
 		return techResponse;
 	}
