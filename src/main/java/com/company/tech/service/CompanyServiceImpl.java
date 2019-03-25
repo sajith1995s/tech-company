@@ -77,19 +77,15 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 
 	@Override
-	public HashMap<String, List<Company>> getCompanies() {
+	public List<Company> getCompanies() {
 		
 		List<Company> companies = companyDao.getCompanies();
 		
 		if(companies != null && !companies.isEmpty()) {
-			HashMap<String, List<Company>> hashMap = new HashMap();
-			
-			hashMap.put("message", companies);
-			
-			return hashMap;
+			return companies;
 		}
 		else {
-			throw new TechException(TechCompanyErrors.COMPANY_CAN_NOT_FIND);
+			throw new TechException(TechCompanyErrors.ANY_COMPANY_IS_REGISTERED_NOT_YET);
 		}
 	}
 

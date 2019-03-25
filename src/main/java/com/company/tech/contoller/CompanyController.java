@@ -53,7 +53,7 @@ public class CompanyController {
 	@RequestMapping(method = RequestMethod.GET)
 	public TechResponse getAllCompany() {
 		
-		HashMap<String, List<Company>> companies = companyService.getCompanies();
+		List<Company> companies = companyService.getCompanies();
 		
 		TechResponse techResponse = new TechResponse();
 		techResponse.setResponseCode("200");
