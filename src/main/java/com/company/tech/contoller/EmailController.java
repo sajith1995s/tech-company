@@ -35,4 +35,14 @@ public class EmailController {
 		 
 		 return response;
 	 }
+	 
+//	 @RequestMapping(method = RequestMethod.GET , value="/getEmails" , params = { "type=cust_mer" })
+//	 public TechResponse getEmail() {
+//		 
+//		 TechResponse response = new TechResponse();
+//		 response.setResponseCode("111");
+//		 response.setResponseObject("GET");
+//		 
+//		 return response;
+//	 }
 }
