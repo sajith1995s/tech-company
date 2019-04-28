@@ -56,16 +56,14 @@ public class CompanyServiceImpl implements CompanyService{
 		
 		if(companyDao.findCompanyById(id) != null) {
 			
-			Company updateCompany = new Company();
-			updateCompany.setName(companyRequest.getCompanyName());
-			updateCompany.setCity(companyRequest.getCity());
-			updateCompany.setAddress(companyRequest.getAddress());
-			updateCompany.setId(id);
-			
-			Company updated = companyDao.updateCompany(updateCompany);
+			Company company = companyDao.findCompanyById(id);
+			company.setName(companyRequest.getCompanyName());
+			company.setCity(companyRequest.getCity());
+			company.setAddress(companyRequest.getAddress());
+			Company updated = companyDao.updateCompany(company);
 			if(updated != null) {
 				HashMap<String, String> hashMap = new HashMap<>();
-				hashMap.put("message", "Company Uupdated");
+				hashMap.put("message", "Company Updated");
 				
 				return hashMap;
 			}else {
@@ -131,14 +129,9 @@ public class CompanyServiceImpl implements CompanyService{
 		
 		if(company != null && company.getStatus().equalsIgnoreCase("ACTIVE")) {
 			
-			Company company2 = new Company();
-			company2.setId(companyId);
-			company2.setName(company.getName());
-			company2.setCity(company.getCity());
-			company2.setAddress(company.getAddress());
-			company2.setStatus(CompanyStatus.IN_ACTIVE.getStatus());
+			company.setStatus(CompanyStatus.IN_ACTIVE.getStatus());
 			
-			Company deletedCompany = companyDao.updateCompany(company2);
+			Company deletedCompany = companyDao.updateCompany(company);
 			HashMap<String, String> hashMap = new HashMap<>();
 			
 			if(deletedCompany != null) {
