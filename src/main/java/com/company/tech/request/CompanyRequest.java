@@ -6,8 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class CompanyRequest {
 	
 	private String companyName;
-	private String city;
 	private String address;
+	private String website;
+	private String contactNumber;
 	
 	public String getCompanyName() {
 		return companyName;
@@ -15,18 +16,23 @@ public class CompanyRequest {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	public String getContactNumber() {
+		return contactNumber;
+	}
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
 	
 }

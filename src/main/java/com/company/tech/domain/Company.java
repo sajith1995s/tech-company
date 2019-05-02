@@ -19,11 +19,14 @@ public class Company implements Serializable {
 
 	private String address;
 
-	private String city;
+	@Column(name="contact_number")
+	private String contactNumber;
 
 	private String name;
 
 	private String status;
+
+	private String website;
 
 	public Company() {
 	}
@@ -44,12 +47,12 @@ public class Company implements Serializable {
 		this.address = address;
 	}
 
-	public String getCity() {
-		return this.city;
+	public String getContactNumber() {
+		return this.contactNumber;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
 
 	public String getName() {
@@ -66,6 +69,14 @@ public class Company implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getWebsite() {
+		return this.website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 
 }
