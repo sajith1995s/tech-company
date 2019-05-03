@@ -33,6 +33,7 @@ public class CompanyServiceImpl implements CompanyService{
 		newCompany.setContactNumber(companyRequest.getContactNumber());
 		newCompany.setWebsite(companyRequest.getWebsite());
 		newCompany.setStatus(CompanyStatus.ACTIVE.getStatus());
+		newCompany.setDescription(companyRequest.getDescription());
 		
 		if(companyDao.findCompanyByName(companyRequest.getCompanyName()) == null) {
 			Company company = companyDao.addNewCompany(newCompany);
@@ -62,6 +63,7 @@ public class CompanyServiceImpl implements CompanyService{
 			company.setAddress(companyRequest.getAddress());
 			company.setContactNumber(companyRequest.getContactNumber());
 			company.setWebsite(companyRequest.getWebsite());
+			company.setDescription(companyRequest.getDescription());
 			Company updated = companyDao.updateCompany(company);
 			if(updated != null) {
 				HashMap<String, String> hashMap = new HashMap<>();
@@ -98,6 +100,7 @@ public class CompanyServiceImpl implements CompanyService{
 					activeCompany.setStatus(company.getStatus());
 					activeCompany.setWebsite(company.getWebsite());
 					activeCompany.setContactNumber(company.getContactNumber());
+					activeCompany.setDescription(company.getDescription());
 					
 					companiesList.add(activeCompany);
 				}

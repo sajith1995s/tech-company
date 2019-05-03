@@ -22,6 +22,8 @@ public class Company implements Serializable {
 	@Column(name="contact_number")
 	private String contactNumber;
 
+	private String description;
+
 	private String name;
 
 	private String status;
@@ -53,6 +55,14 @@ public class Company implements Serializable {
 
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getName() {

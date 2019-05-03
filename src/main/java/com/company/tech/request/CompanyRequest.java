@@ -9,6 +9,7 @@ public class CompanyRequest {
 	private String address;
 	private String website;
 	private String contactNumber;
+	private String description;
 	
 	public String getCompanyName() {
 		return companyName;
@@ -34,5 +35,10 @@ public class CompanyRequest {
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
