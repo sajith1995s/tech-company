@@ -59,7 +59,7 @@ public class CompanyController {
 		return techResponse;
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET , value = "/create")
 	public TechResponse getAllCompany() {
 		
 		List<Company> companies = companyService.getCompanies();
