@@ -121,4 +121,9 @@ public class CompanyController {
 		
 		return techResponse;
 	}
+
+	 @RequestMapping(value = "/error")
+	    public String error() {
+	        return "Error handling";
+	    }
 }
