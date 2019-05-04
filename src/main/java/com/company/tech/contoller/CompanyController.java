@@ -25,7 +25,7 @@ import com.company.tech.service.CompanyService;
 
 @RestController
 @RequestMapping(value = "/tech/companies")
-public class CompanyController {
+public class CompanyController implements ErrorController{
 	
 	@Autowired
 	CompanyService companyService;
@@ -34,6 +34,7 @@ public class CompanyController {
 	CompanyDao companyDao;
 	
 	Log logger = LogFactory.getLog(CompanyController.class);
+	 private final static String ERROR_PATH = "/error";
 	
 	@RequestMapping(method = RequestMethod.POST , value = "/create")
 	public TechResponse addCompany(@RequestBody CompanyRequest companyRequest) {
@@ -59,7 +60,7 @@ public class CompanyController {
 		return techResponse;
 	}
 	
-	@RequestMapping(method = RequestMethod.GET , value = "/create")
+	@RequestMapping(method = RequestMethod.GET)
 	public TechResponse getAllCompany() {
 		
 		List<Company> companies = companyService.getCompanies();
@@ -122,8 +123,13 @@ public class CompanyController {
 		return techResponse;
 	}
 
-	 @RequestMapping(value = "/error")
-	    public String error() {
-	        return "Error handling";
-	    }
+	 /**
+     * Returns the path of the error page.
+     *
+     * @return the error path
+     */
+    @Override
+    public String getErrorPath() {
+        return ERROR_PATH;
+    }
 }
